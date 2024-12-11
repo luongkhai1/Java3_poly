@@ -1,0 +1,45 @@
+CREATE DATABASE FPL_DaoTao
+GO
+
+USE FPL_DaoTao
+GO
+
+CREATE TABLE USERS(
+	Username NVARCHAR(50) PRIMARY KEY,
+	Passwords NVARCHAR(50) NULL,
+	Roles NVARCHAR(50) NULL
+)
+GO
+
+CREATE TABLE STUDENTS(
+	MaSV NVARCHAR(50) PRIMARY KEY,
+	HoTen NVARCHAR(50) NULL,
+	Email NVARCHAR(50) NULL,
+	SoDT NVARCHAR(50) NULL,
+	GioiTinh BIT NULL/*1 nam 2 nu*/,
+	DiaChi NVARCHAR(50) NULL,
+	Hinh NVARCHAR(50) NULL
+)
+GO
+
+CREATE TABLE GREDE(
+	ID INT PRIMARY KEY,
+	MaSV NVARCHAR(50) NULL,
+	TiengAnh FLOAT NULL,
+	TinHoc FLOAT NULL,
+	GDTC FLOAT NULL
+)
+GO
+
+INSERT INTO dbo.USERS
+(
+    Username,
+    Passwords,
+    Roles
+)
+VALUES
+(   N'Luongduykhai','123' ,'dao tao' ),
+(   N'Luongvantrieu','1234' ,'giang vien' )
+
+SELECT Roles FROM dbo.USERS WHERE Username = ? AND Passwords = ?
+
